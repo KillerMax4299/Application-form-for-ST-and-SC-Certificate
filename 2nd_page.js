@@ -46,23 +46,23 @@ function submit() {
   let datas = `&ardt=${ardt}&ardd=${ardd}&apdt=${apdt}&apdd=${apdd}&pidt=${pidt}&pidd=${pidd}&cdt=${cdt}&cdd=${cdd}&rWBdt=${rWBdt}&rWBdd=${rWBdd}&lrdt=${lrdt}&lrdd=${lrdd}&voterIdof=${voterIdof}&voterNo=${voterNo}&AssembNo=${AssembNo}&partNo=${partNo}&serialNo=${serialNo}&image=${image}`
   datas = `appNo=${applicationid()}&` +formdata + datas;
   // document.getElementById("text_value").value = datas;
-    $.ajax({
-      type: "POST",
-      url: "data.php",
-      data: datas,
-      success: function () {
+    // $.ajax({
+    //   type: "POST",
+    //   url: "data.php",
+    //   data: datas,
+    //   success: function () {
         // Handle success
         // localStorage.setItem("alldata",datas)
         localStorage.setItem("appNo",applicationid());
         window.location.href = "lastpage.html"
-      },
-      error: function (xhr, status, error) {
-        // Handle error
-        alert("An error occurred while submitting the form.");
-        console.log(error);
-        console.log(status);
-      },
-    });
+      // },
+      // error: function (xhr, status, error) {
+      //   // Handle error
+      //   alert("An error occurred while submitting the form.");
+      //   console.log(error);
+      //   console.log(status);
+      // },
+    // });
 }
 
 
