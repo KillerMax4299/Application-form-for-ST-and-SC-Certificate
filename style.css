@@ -1,0 +1,27 @@
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.scrollable-menu{
+  max-height: 20rem;
+  overflow-x: hidden;
+}
+li{
+  cursor: pointer;
+}
+input{
+  outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:disabled{
+  cursor:not-allowed;
+}
+input[type="date"]{
+  color: rgb(116, 116, 116);
+}
+

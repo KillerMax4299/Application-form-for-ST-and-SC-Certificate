@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" onload="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Backward Classes Welfare Department</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  
+</head>
+
+<body >
+  <div class="bg-gradient-to-r from-indigo-200 to-blue-300 p-3">
+    <div class="pt-1 pl-8 absolute top-0 left-0">
+      <img class="max-h-32 " src="assets/1200px-Emblem_of_West_Bengal.svg.png" alt="">
+    </div>
+    <h4 class="mb-2 text-center text-3xl font-semibold">Government of West Bengal</h4>
+    <h5 class="mb-1 text-center text-2xl font-medium">Backward Classes Welfare Development</h5>
+    <h6 class="text-center text-lg font-medium">Application form for ST and SC Certificate</h6>
+  </div>
+  <form id="formdata">
+    <!-- *TODO: District and Sub-division -->
+
+    <div class=" m-3.5 p-1.5 rounded flex justify-center items-center content-center"
+      style="background-color: rgb(236, 236, 236);">
+      <label class="mr-4">Application to</label>
+      <label class="text-blue-600 font-semibold mr-4">West Bengal</label>
+
+      <div  class="btn-group  ml-3 dropdown-center border-2 border-transparent rounded-lg " onclick="inputfocus(this)">
+        <button name="district" type="button" class="input-drop w-40 p-0.5 bg-indigo-500 border-0 btn btn-secondary">District</button>  <!-- *TODO: [name="district"].innerHTML-->
+        <button type="button" class="p bg-indigo-500 border-0 btn btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul id="dist" class="dropdown-menu scrollable-menu even:bg-slate-200">
+        </ul>
+      </div>
+
+      <div class="btn-group  ml-3 dropdown-center border-2 border-transparent rounded-lg  "  onclick="inputfocus(this)">                                          <!-- *TODO: [#].innerHTML--></button>
+        <button id="subdiv_disp" type="button" name="subdiv" class="input-drop w-32 p-0.5 bg-indigo-500 border-0 btn btn-secondary">Sub-Division</button>   
+          
+        <button type="button" class=" bg-indigo-500 border-0 btn btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul id="sub-div" class="dropdown-menu scrollable-menu">
+          <li value="" class="dropdown-item disabled">Select District First</li>
+        </ul>
+      </div>
+
+      <div onclick="inputfocus(this)" class="border-2 ml-3 border-zinc-300 p-1 rounded form-check-inline " style="background-color: white;">
+            <div class="ml-2 form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="municipality" id="inlineRadio1" value="Ward Number" onfocus="radios(this)" >  
+                  <label class="form-check-label" for="inlineRadio1">Municipality</label>               <!-- *! radio name and id same -->
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="municipality" id="inlineRadio2" value="Gram Panchayet" onfocus="radios(this)"  >
+                  <label class="form-check-label" for="inlineRadio2">Block</label>
+            </div>
+      </div>
+      <div class="d-inline text-right mr-1" style="width: 9rem;">
+            <label class="font-semibold text-center" for="text_field"> GP / Ward<span class="text-red-600">*</span></label>
+      </div>
+      <input type="number" disabled onfocus="inputfocus(this)" class="input-text rounded border-2 ml-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4" name="gpward" id="text_field">        <!-- *! gp / ward id = text_field -->
+
+        
+    </div>
+
+    <!-- *TODO: Tribe / Caste Details -->
+
+    <div class=" m-3.5 p-1.5 rounded flex justify-center items-center content-center"
+      style="background-color: #ececec;">
+      <label class="mr-4 font-semibold">Applying for</label>
+      <div onclick="inputfocus(this)" class="border-2 ml-3 border-zinc-300 p-1 rounded form-check-inline " style="background-color: white;">
+        <div class="ml-2 form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="scst" id="inlineRadio3" onfocus="tribe(this)" value="SC">
+          <label class="form-check-label" for="inlineRadio3">Scheduled Caste</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="scst" id="inlineRadio4" onfocus="tribe(this)" value="ST">
+          <label class="form-check-label" for="inlineRadio4">Scheduled Tribe</label>
+        </div>
+
+      </div>
+      <label class="ml-20 font-semibold text-center" for="text_field">Caste / Tribe <span class="text-red-600">
+          *</span></label>
+      <div class="btn-group ml-3 dropdown-center border-2 border-transparent rounded-lg " onclick="inputfocus(this)">
+        <!--  <label class=" font-semibold text-center" for="text_field"> GP / Ward<span class="text-red-600"> *</span></label> -->
+        <button id="catgr_disp" name="district_name" type="button"
+          class="input-drop w-40 p-0.5 bg-indigo-500 border-0 btn btn-secondary">Select from List</button>                        
+        <button type="button" class="bg-indigo-500 border-0 btn btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul id="tribe" class="dropdown-menu scrollable-menu">
+          <li value="" class="dropdown-item disabled">Select Any Category</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- *TODO: Personal Details                                          class name = "personal"-->                                  
+    <div class=" m-3.5 p-1.5 rounded flex justify-center items-center content-center"
+      style="background-color: #ececec;">
+      <div class="d-inline text-right mr-1">
+        <label class=" font-semibold text-center" for="text_field">Name <span class="text-red-600"> *</span></label>
+      </div>
+      <input type="text" class="input-text personal rounded border-2 ml-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+        name="name" placeholder="Enter your name" onfocus="inputfocus(this)">
+      <div class="d-inline text-right mr-1" style="width: 9rem;">
+        <label class=" font-semibold text-center" for="text_field">Father's Name <span class="text-red-600">
+            *</span></label>
+      </div>
+      <input type="text" class="input-text personal rounded border-2 ml-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+        name="father_name"  placeholder="Fathers's name" onfocus="inputfocus(this)">
+      <div class="d-inline text-right mr-1" style="width: 8rem;">
+        <label class=" font-semibold text-center" for="text_field">Date of Birth <span class="text-red-600">
+            *</span></label>
+      </div>
+      <input class="input-text personal rounded border-2 ml-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4" type="date"
+        name="birth_date" onfocus="inputfocus(this)">
+      <div class="d-inline text-right mr-1" style="width: 5rem;">
+        <label class=" font-semibold text-center" for="text_field">Mobile </label>
+      </div>
+      <input type="number" style="width: 8.4rem;" maxlength="10" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        class="input-text personal rounded border-2 ml-2 border-zinc-300 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4" name="mobile"
+         placeholder="XXXXXXXXXX" onfocus="inputfocus(this)">
+      <div class="d-inline text-right mr-1" style="width: 5rem;">
+        <label class=" font-semibold text-center" for="text_field">Email </label>
+      </div>
+      <input type="email" class="input-text personal rounded border-2 ml-2 border-zinc-300 w-96 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+        name="email"  placeholder="example@email.com" onfocus="inputfocus(this)">
+    </div>
+
+
+    <!-- *TODO: Documents                                   class name = "doc-req"   [3]-->                       
+
+    <div class=" m-3.5 p-1.5 rounded flex justify-center items-center content-center"
+      style="background-color: #ececec;">
+      <label class="text-black font-semibold mr-4">Documents Required <span style="font-weight: normal;"
+          class="text-blue-500">(Atleast one)</span><span class="text-red-600">*</span></label>
+
+
+      <div class="d-inline text-right mr-1" style="width: 9rem;">
+        <label class="font-semibold text-center" >Epic Number </span></label>
+      </div>
+      <input type="text" class="input-text doc-req rounded border-2 ml-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+        name="epicNumber"  placeholder="Epic number" onfocus="inputfocus(this)">
+
+      <div class="d-inline text-right mr-1" style="width: 9rem;">
+        <label class=" font-semibold text-center" >Aadhar Number </label>
+      </div>
+      <input type="number" style="width: 10rem;" maxlength="12" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        class="input-text doc-req rounded border-2 ml-2 border-zinc-300 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4" name="AadharNumber"
+         placeholder="Aadhar Number" onfocus="inputfocus(this)">
+      <div class="d-inline text-right mr-1" style="width: 10rem;">
+        <label class=" font-semibold text-center" >Khadyasathi No</label>
+      </div>
+      <input type="email" class="input-text doc-req rounded border-2 ml-2 border-zinc-300 w-72 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+        name="Khadyasathi"  placeholder="Khadyasathi Number" onfocus="inputfocus(this)">
+        <div class="d-inline text-right mr-1" style="width: 10rem;">
+          <label class=" font-semibold text-center" >PAN No</label>
+        </div>
+        <input type="email" class="input-text doc-req rounded border-2 ml-2 border-zinc-300 w-72 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+          name="panNo"  placeholder="PAN Number" onfocus="inputfocus(this)">
+    </div>
+
+    <!-- *TODO: Adress -->
+
+    <div class=" grid grid-rows-2 grid-flow-col gap-0">
+      <!-- *! present address                                     class name = "pres"    [6]-->                                  
+      <div class=" row-span-2 ">
+        <div class=" ml-3.5 p-1.5 rounded flex flex-col justify-center items-center content-center"
+          style="background-color: #ececec;">
+
+          <label class="text-black font-semibold mr-4">Present Address<span class="text-red-600"> *</span></label>
+
+          <div class="flex flex-row mt-3">
+            <input type="text" name="presentAddress" onfocus="inputfocus(this)"
+              class="input-text pres rounded border-2 m-2 border-zinc-300 w-80 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Address Line 1">
+            <input type="text" name="presentCity" onfocus="inputfocus(this)"
+              class="input-text pres rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="City / Town">
+            <input type="text" name="presentPs" onfocus="inputfocus(this)"
+              class="input-text pres rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Police Station">
+          </div>
+          <div class="flex flex-row ">
+            <input type="text" name="presentDistrict" onfocus="inputfocus(this)"
+              class="input-text pres rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="District">
+            <input type="text" name="presentWardGP" onfocus="inputfocus(this)"
+              class="input-text pres rounded border-2 m-2 border-zinc-300 w-80 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Ward Number / Gram Panchayet">
+            <input type="number" maxlength="6" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onfocus="inputfocus(this)"
+              class="input-text pres rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Pin Code" name="presentPIN">
+          </div>
+
+        </div>
+
+      </div>
+      <!-- *! permanent address                     class name = "perm"           [6]  -->                                                         
+                                                                                                      
+      <div class="row-span-2 relative">
+        <div class="mr-3.5 ml-3.5 p-1.5 rounded flex flex-col justify-center items-center content-center"
+          style="background-color: #ececec;">
+          <div class="form-check form-switch absolute top-2 left-20 ">
+            <input class="form-check-input" type="checkbox" role="switch" id="address_switch"
+              onclick="check_box(this);">
+            <label class="form-check-label" for="address_switch"> <i>Same as Present?</i> </label>
+
+          </div>
+          <label class="text-black font-semibold mr-4">Permanent Address</label>
+          <div class="flex flex-row mt-3">
+            <input type="text" name="permAddress" onfocus="inputfocus(this)"
+              class="input-text perm rounded border-2 m-2 border-zinc-300 w-80 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Address Line 1">
+            <input type="text" name="permCity" onfocus="inputfocus(this)"
+              class="input-text perm  rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="City / Town">
+            <input type="text" name="permPS" onfocus="inputfocus(this)"
+              class="input-text perm  rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Police Station">
+          </div>
+          <div class="flex flex-row ">
+            <input type="text" name="permDistrict" onfocus="inputfocus(this)"
+              class="input-text perm  rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="District">
+            <input type="text" name="permWardGP" onfocus="inputfocus(this)"
+              class="input-text perm  rounded border-2 m-2 border-zinc-300 w-80 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Ward Number / Gram Panchayet">
+            <input type="number" maxlength="6" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="permPIN" onfocus="inputfocus(this)"
+              class="input-text perm  rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Pin Code">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *TODO: Nationality Religion and Gender-->
+    <div class=" m-3.5 p-1.5 rounded flex flex-row justify-center items-center content-center"
+      style="background-color: #ececec;">
+      <label class="text-black font-semibold mr-4">Nationality <span
+          class="ml-2 mr-1 font-semibold text-blue-500">INDIAN</span><span class="text-red-600">*</span></label>
+
+
+      <label class="ml-20 font-semibold text-center" for="text_field">Religion <span class="text-red-600">
+          *</span></label>
+      <div class="btn-group mt-2 mb-2 ml-3 dropdown-center border-2 border-transparent rounded-lg " onclick="inputfocus(this)">
+        <!--  <label class=" font-semibold text-center" for="text_field"> GP / Ward<span class="text-red-600"> *</span></label> -->
+        <button type="button" class="input-drop w-40 p-0.5 bg-indigo-500 border-0 btn btn-secondary">Select from List</button>
+        <button type="button" class="bg-indigo-500 border-0 btn btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul id="religion" class="dropdown-menu scrollable-menu">
+
+        </ul>
+      </div>
+      <input style="visibility:hidden;" type="text" name="religion_spec"                                            
+        class="input-text religion rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+        placeholder="Please Specify"  onfocus="inputfocus(this)">                                                         <!-- *TODO: class name "religion "  please specify--> 
+
+      <label class="ml-20 font-semibold text-center" for="text_field">Gender <span class="text-red-600">
+          *</span></label>
+      <div class="btn-group mt-2 mb-2 ml-3 dropdown-center border-2 border-transparent rounded-lg " onclick="inputfocus(this)">
+        <button type="button" class="input-drop w-40 p-0.5 bg-indigo-500 border-0 btn btn-secondary">Select from List</button>
+        <button type="button" class="bg-indigo-500 border-0 btn btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul id="gender" class="dropdown-menu scrollable-menu">
+
+        </ul>
+      </div>
+      <input style="visibility: hidden;" type="text" name="gender_spec"
+        class="input-text gender rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+        placeholder="Please Specify"  onfocus="inputfocus(this)">                                                                 <!-- *TODO: class name "gender " please specify -->  
+    </div>
+
+    <!-- *TODO: Blood Relation -->
+    <div class=" grid grid-rows-2 grid-flow-col gap-0">
+      <!-- *! Blood relation -->
+      <div class="row-span-2 relative">
+        <div id="blood_re_div" class="mr-3.5 ml-3.5 p-1.5 rounded flex flex-col justify-center items-center content-center" style="background-color: #ececec;"> <!-- *TODO :   text color here -->
+          <div class="form-check form-switch absolute top-2 left-20 ">
+            <input checked class="form-check-input" type="checkbox" role="switch" id="blood_switch" onclick="check_b(this);">                                                                             <!-- *? bloodrel switch -->
+            <label class="form-check-label" for="address_switch"><i>Blood Related?</i></label>
+          </div>
+          <label class="font-semibold mr-4">Blood Relation Details of
+            <span style="font-weight: normal;" class="text-blue-500">Certificate Holder</span><span
+              class="text-red-600"> *</span>
+          </label>
+
+          <div class="flex flex-row mt-3">
+            <div class="d-inline text-right mr-1">
+              <label class=" font-semibold text-center mt-2 mb-2 pt-1 pb-1 pl-4 pr-4" for="text_field">Name <span
+                  class="text-red-600"> *</span></label>
+            </div>
+            <input type="text"  onfocus="inputfocus(this)"
+              class="bloodrel blood-text input-text blood rounded border-2 m-2 border-zinc-300 w-60 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              name="blood_rel_name"  placeholder="Certificate Holder Name">
+            <!-- <input type="text" class="blood rounded border-2 m-2 border-zinc-300 w-80 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"  placeholder="Address Line 1"> -->
+            <input type="text" style="text-transform: uppercase;" name="blood_rel_cert_no"  onfocus="inputfocus(this)"
+              class="blood bloodrel blood-text input-text rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Certificate Number">
+            <div class="d-inline text-right mr-1" style="width: 10rem;">
+              <label class=" font-semibold text-center mt-2 mb-2 pt-1 pb-1 pl-4 pr-4 " for="text_field">Date of Issue
+                <span class="text-red-600"> *</span></label>
+            </div>
+            <input class="blood bloodrel blood-text input-text rounded border-2 m-2 border-zinc-300 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4" onfocus="inputfocus(this)"
+              type="date" name="blood_rel_issue_date" id="dob">
+          </div>
+          <div class="flex flex-row ">
+            <div class="d-inline text-right mr-1">
+              <label class=" font-semibold text-center mt-2 mb-2 pt-1 pb-1 pl-4 pr-4" for="text_field">Issuing Authority
+                <span class="text-red-600"> *</span></label>
+            </div>
+            <input type="text"
+              class="bloodrel blood-text input-text blood rounded border-2 m-2 border-zinc-300 w-60 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4" onfocus="inputfocus(this)"
+              name="blood_rel_issue_auth"  placeholder="Issuing Authority">
+            <label class="font-semibold text-center mt-2 mb-2 pt-1 pb-1 pl-4 pr-1" for="text_field">Relationship <span
+                class="text-red-600"> *</span></label>
+            <div class="bloodrel btn-group mt-2 mb-2 ml-3 dropdown-center border-2 border-transparent rounded-lg " onclick="inputfocus(this)">
+              <button id="rel_stat" type="button"
+                class="input-drop blood w-40 p-0.5 bg-indigo-500 border-0 btn btn-secondary">Select from List</button>
+              
+              <button type="button"
+                class="blood bg-indigo-500 border-0 btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                data-bs-toggle="dropdown" aria-expanded="false"> 
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul id="gender" class="dropdown-menu scrollable-menu">
+                <li onclick="clickeed_re(this)" value="Father" class="dropdown-item ">Father</li>
+                <li onclick="clickeed_re(this)" value="Nephew" class="dropdown-item ">Nephew</li>
+                <li onclick="clickeed_re(this)" value="Neice" class="dropdown-item ">Neice</li>
+                <li onclick="clickeed_re(this)" value="Paternal Uncle" class="dropdown-item ">Paternal Uncle</li>
+                <li onclick="clickeed_re(this)" value="Real Brother" class="dropdown-item ">Real Brother</li>
+                <li onclick="clickeed_re(this)" value="Real Sister" class="dropdown-item ">Real Sister</li>
+                <li onclick="clickeed_re(this)" value="Others" class="dropdown-item ">Others</li>
+              </ul>
+            </div>
+            <input style="visibility:hidden;" type="text" name="blood_rel_spec"
+              class="bloodrel blood-text input-text blood rounded border-2 m-2 border-zinc-300  focus:border-blue-500  pt-1 pb-1 pl-4 pr-4" onfocus="inputfocus(this)"
+              placeholder="Please Specify">                                 <!-- *TODO: class name "bloodrel"   please specify  (for blood relationship )-->  
+          </div>
+        </div>
+      </div>
+      <!-- *! local referee                                             class name = "local"         [4]-->                                  
+      <div class="row-span-2 relative">
+        <div class="mr-3.5 p-1.5 rounded flex flex-col justify-center items-center content-center"
+          style="background-color: #ececec;">
+
+          <label class="text-black font-semibold mr-4">Local Referee <span class="text-red-600"> *</span></label>
+          <div class="flex flex-row mt-3">
+
+            <label class=" font-semibold text-center m-2 pt-1 pb-1 pl-4 pr-4" for="text_field">Local Referee 1<span
+                class="text-red-600"> *</span></label>
+            <input type="text"  name="local1name"
+               onfocus="inputfocus(this)" class="local input-text   rounded border-2 m-2 border-zinc-300 w-72 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Name">
+            <input type="text" name="local1address"
+               onfocus="inputfocus(this)" class="local input-text  rounded border-2 m-2 border-zinc-300 w-96 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Full Address of Local Referee 1 ">
+
+          </div>
+          <div class="flex flex-row ">
+            <label class=" font-semibold m-2 pt-1 pb-1 pl-4 pr-4 text-center" for="text_field">Local Referee 2<span
+                class="text-red-600"> *</span></label>
+            <input type="text" name="local2name"
+               onfocus="inputfocus(this)" class="local input-text   rounded border-2 m-2 border-zinc-300 w-72 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Name">
+            <input type="text" name="local2address"
+               onfocus="inputfocus(this)" class="local input-text   rounded border-2 m-2 border-zinc-300 w-96 focus:border-blue-500  pt-1 pb-1 pl-4 pr-4"
+              placeholder="Full Address of Local Referee 2">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *TODO: Migratory Details                         class name = "mig"-->           
+    <div class=" m-3.5 p-1.5 rounded flex justify-center items-center content-center"
+      style="background-color: #ececec;">
+      <div class="row-span-2 relative">
+        <div class="mr-3.5 ml-3.5 p-1.5 rounded flex flex-col justify-center items-center content-center"
+          style="background-color: #ececec;">
+          <div class="form-check form-switch absolute top-2 left-16 ">
+            <input class=" form-check-input" type="checkbox" role="switch" id="mig_switch" onclick="check_mig(this);">
+            <label class="form-check-label" for="address_switch"><i>From other State / Country ?</i></label>
+          </div>
+          <label class="font-semibold mr-4">Migratory Details<span class="text-red-600"> *</span></label>
+          <div class="flex flex-row mt-3 text-slate-500">
+
+            <label class=" font-semibold text-center mb-2 mt-2 ml-6 pt-1 pb-1 pl-4 pr-1" for="text_field">Migration Certificate No<span class="text-red-600"> *</span></label>
+            <input disabled type="text"  onfocus="inputfocus(this)" name="migcertNo"
+              class=" input-text mig rounded border-2 m-2 border-zinc-300 w-72 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              placeholder="Certificate Number">
+            <div class="d-inline text-right mr-1" style="width: 10rem;">
+              <label class=" font-semibold text-center mt-2 mb-2 pt-1 pb-1 pl-4 pr-1 " for="text_field">Date of Issue
+                <span class="text-red-600"> *</span></label>
+            </div>
+            <input disabled class=" input-text mig rounded border-2 m-2 border-zinc-300 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              type="date"  onfocus="inputfocus(this)" name="migIssuedate" id="dob">
+            <label class=" font-semibold text-center mb-2 mt-2 ml-6 pt-1 pb-1 pl-4 pr-1" for="text_field">Country<span
+                class="text-red-600"> *</span></label>
+            <input disabled type="text"  onfocus="inputfocus(this)" name="migCountry"
+              class="input-text mig rounded border-2 m-2 border-zinc-300 w-60 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              placeholder="Country">
+            <label class=" font-semibold text-center mb-2 mt-2 ml-6 pt-1 pb-1 pl-4 pr-1" for="text_field">State<span
+                class="text-red-600"> *</span></label>
+            <input disabled type="text"  onfocus="inputfocus(this)" name="migState"
+              class="input-text mig rounded border-2 m-2 border-zinc-300 w-60 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              placeholder="State">
+
+
+          </div>
+          <div class="flex flex-row text-slate-500">
+            <label class=" font-semibold text-center mb-2 mt-2 ml-6 pt-1 pb-1 pl-4 pr-1" for="text_field">District<span
+                class="text-red-600"> *</span></label>
+            <input disabled type="text"  onfocus="inputfocus(this)" name="migDist"
+              class=" input-text mig rounded border-2 m-2 border-zinc-300 w-72 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              placeholder="District Name">
+            <div class="d-inline text-right mr-1" style="width: 10rem;">
+              <label class=" font-semibold text-center mt-2 mb-2 pt-1 pb-1 pl-4 pr-1 " for="text_field">Police Station<span class="text-red-600"> *</span></label>
+            </div>
+            <input disabled type="text"  onfocus="inputfocus(this)" name="migPS"
+              class="input-text mig rounded border-2 m-2 border-zinc-300 w-60 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              placeholder="Police Station">
+            <label class=" font-semibold text-center mb-2 mt-2 ml-6 pt-1 pb-1 pl-4 pr-1" for="text_field">Village / Ward<span class="text-red-600"> *</span></label>
+            <input disabled type="text"  onfocus="inputfocus(this)" name="migVill"
+              class="input-text mig rounded border-2 m-2 border-zinc-300 w-60 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              placeholder="name">
+            <label  onfocus="inputfocus(this)" name="migYear" class=" font-semibold text-center mb-2 mt-2 ml-6 pt-1 pb-1 pl-4 pr-1" for="text_field">Year of Migration<span class="text-red-600"> *</span></label>
+            <input disabled type="number" maxlength="4" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+               class="input-text mig rounded border-2 m-2 border-zinc-300 w-36 focus:border-blue-500  pt-1 pb-1 pl-4 pr-1"
+              placeholder="yyyy">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+      <!-- *TODO: Submit buttons -->
+  <div class="h-14 text-white flex justify-center ">
+    <!-- <a href="second-page.html"> -->
+      <button onclick="saveandcont()" style="height: 2.8rem;" class="mr-12 rounded mb-4 border-2 w-48 hover:opacity-90 active:bg-green-700 bg-green-600">Save and
+        Continue</button>
+    <button style="height: 2.8rem;"
+      class="ml-12 rounded mb-4 border-2 w-48 hover:opacity-80 active:bg-red-700 bg-red-600"
+      onclick="reset_data()">Reset form</button>
+  </div>
+
+
+
+</body>
+<script src="script.js"></script>
+<script src="1st_page.js"></script>
+
+</html>
+
+
+
+
+
